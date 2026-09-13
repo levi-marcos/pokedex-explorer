@@ -77,15 +77,3 @@ O repositório usa **GitHub Actions** (`.github/workflows/deploy.yml`): a cada p
 ## 📊 Dados e a "estratégia N+1"
 
 A PokéAPI entrega a listagem sem imagens/tipos; o detalhe de cada Pokémon traz tudo, porém em resposta pesada (~290 KB). No MVP, buscamos o detalhe de cada card da página (12 requisições em paralelo via `forkJoin`). Isso está registrado como **dívida técnica consciente** — a evolução (cache em memória e/ou endpoint customizado) está no roadmap.
-
-## 🗺️ Roadmap / Melhorias futuras
-
-- [ ] Cache em memória das requisições de detalhe (reduzir N+1)
-- [ ] Descrição completa no card do catálogo
-- [ ] Seção de evolução com cadeia completa (`/pokemon-species`)
-- [ ] Tema escuro
-- [ ] Modo "dispositivo" (visual clássico da Pokédex física)
-
----
-
-Feito como projeto de estudo de Angular 22, mentorado passo a passo (arquitetura, UX e testes). Mente: *Gotta catch 'em all!*
