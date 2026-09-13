@@ -36,7 +36,7 @@ jobs:
       - name: Publicar artefato
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/pokedex-explorer
+          path: dist/pokedex-explorer/browser
 
   deploy:
     needs: build

@@ -44,3 +44,9 @@ __screenshots__/
 Thumbs.db
 
 ng-serve.log
+
+# Arquivos internos de mentoria (mantidos apenas localmente)
+AGENTS.md
+POKEDEX_MENTOR_PROTOCOL.md
+DESAFIO_02_POKEDEX_ANGULAR22_MENTOR.md
+MENTORIA_STATE.md
