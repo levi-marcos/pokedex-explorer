@@ -44,6 +44,29 @@
   }
 }
 
+.bg-balls {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-ball {
+  position: absolute;
+  opacity: 0.16;
+  filter: grayscale(1);
+}
+
+.bg-ball--1 { left: 5%;   top: 20%;  width: 90px;  height: 90px; }
+.bg-ball--2 { right: 8%;  top: 26%;  width: 60px;  height: 60px; }
+.bg-ball--3 { left: 2%;   top: 46%;  width: 150px; height: 150px; }
+.bg-ball--4 { right: 4%;  top: 52%;  width: 110px; height: 110px; }
+.bg-ball--5 { left: 12%;  bottom: 8%; width: 70px;  height: 70px; }
+.bg-ball--6 { right: 12%; bottom: 5%; width: 130px; height: 130px; }
+.bg-ball--7 { left: 42%;  top: 70%;  width: 55px;  height: 55px; }
+.bg-ball--8 { left: 66%;  bottom: 32%; width: 95px; height: 95px; }
+
 .pokedex-lid::after {
   content: '';
   position: absolute;
