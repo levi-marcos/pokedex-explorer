@@ -1,0 +1,84 @@
+@if (loading()) {
+  <p class="status" role="status">Carregando…</p>
+} @else if (error()) {
+  <p class="status status--error" role="alert">
+    Não foi possível carregar este Pokémon. <a routerLink="/">Voltar ao catálogo</a>
+  </p>
+} @else if (pokemon(); as p) {
+  <article class="detail">
+    <a class="detail__back" routerLink="/">← Voltar</a>
+
+    <div class="detail__layout">
+      <aside class="detail__art">
+        <span class="detail__card-number">#{{ padId(p.id) }}</span>
+        <img [src]="p.imageUrl ?? ''" [alt]="p.name" width="280" height="280" />
+      </aside>
+
+      <div class="detail__infos">
+        <h1 class="detail__name">{{ p.name }}</h1>
+        <div class="detail__types">
+          @for (type of p.types; track type) {
+            <span class="type-badge" [class]="type">{{ type }}</span>
+          }
+        </div>
+
+        @if (p.description) {
+          <p class="detail__desc">{{ p.description }}</p>
+        }
+
+        <dl class="detail__measures">
+          <div class="detail__measure">
+            <dt>Altura</dt>
+            <dd>{{ p.heightM.toLocaleString('pt-BR') }} m</dd>
+          </div>
+          <div class="detail__measure">
+            <dt>Peso</dt>
+            <dd>{{ p.weightKg.toLocaleString('pt-BR') }} kg</dd>
+          </div>
+        </dl>
+
+        <section class="detail__stats">
+          <h2>STATS</h2>
+          <ul>
+            @for (stat of p.stats; track stat.label) {
+              <li class="stat">
+                <span class="stat__label">{{ stat.label }}</span>
+                <span class="stat__bar"><i [style.width.%]="stat.value"></i></span>
+                <span class="stat__value">{{ stat.value }}</span>
+              </li>
+            }
+          </ul>
+        </section>
+
+        <section class="detail__abilities">
+          <h2>HABILIDADES</h2>
+          <div class="detail__chips">
+            @for (ability of p.abilities; track ability) {
+              <span class="detail__chip">{{ ability }}</span>
+            }
+          </div>
+        </section>
+
+        <section class="detail__evolution">
+          <h2>EVOLUÇÃO</h2>
+          <div class="evo-row">
+            @if (p.prevEvolution; as prev) {
+              <a class="evo-tile" [routerLink]="['/pokemon', prev.id]">
+                <img [src]="artworkUrl(prev.id)" [alt]="prev.name" width="70" height="70" loading="lazy" />
+                <span>{{ prev.name }}</span>
+              </a>
+            }
+            <div class="evo-tile evo-tile--current">
+              <img [src]="p.imageUrl ?? ''" [alt]="p.name" width="70" height="70" />
+              <span>{{ p.name }}</span>
+            </div>
+            <div class="evo-tile evo-tile--next" title="Próxima evolução em breve">
+              <span class="evo-tile__q">?</span>
+              <span>Em breve</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+}

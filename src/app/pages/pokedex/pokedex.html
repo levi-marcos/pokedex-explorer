@@ -1,0 +1,66 @@
+<main class="pokedex">
+  <header class="pokedex__header">
+    <h1 class="pokedex__logo"><span class="pokedex__logo-dot" aria-hidden="true"></span>PokéDex Explorer</h1>
+
+    <form class="pokedex__search" (ngSubmit)="onSearch()" role="search">
+      <label class="sr-only" for="busca">Buscar Pokémon por nome ou ID</label>
+      <input
+        id="busca"
+        name="busca"
+        type="search"
+        placeholder="Buscar por nome ou ID — ex.: pikachu ou 25"
+        [value]="query()"
+        (input)="query.set($any($event.target).value)" />
+      <button type="submit">Buscar</button>
+      @if (mode() === 'search') {
+        <button type="button" class="pokedex__search-clear" (click)="clearSearch()">Limpar</button>
+      }
+    </form>
+  </header>
+
+  <nav class="filters" aria-label="Filtrar por tipo">
+    <span class="filters__hint"
+      >Filtrar por tipo — marque vários para mostrar todos os Pokémon de um dos tipos:</span
+    >
+    <div class="filters__chips">
+      @for (type of types(); track type) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="selectedTypes().includes(type)"
+          (click)="toggleType(type)">
+          {{ type }}
+        </button>
+      }
+    </div>
+  </nav>
+
+  @if (loading()) {
+    <p class="status" role="status">Carregando…</p>
+  } @else if (error(); as mensagem) {
+    <p class="status status--error" role="alert">{{ mensagem }}</p>
+  } @else if (notFound()) {
+    <div class="status">
+      <p>Nenhum Pokémon encontrado para "{{ query() }}".</p>
+      <button type="button" class="status__action" (click)="clearSearch()">Voltar ao catálogo</button>
+    </div>
+  } @else if (pokemons().length === 0) {
+    <p class="status">Nenhum Pokémon encontrado com esse filtro.</p>
+  } @else {
+    <p class="pokedex__total">Total: {{ total() }} Pokémon</p>
+    <div class="pokedex__grid">
+      @for (p of pokemons(); track p.id) {
+        <pokemon-card [card]="p" />
+      }
+    </div>
+    <nav class="pagination" aria-label="Paginação">
+      <button type="button" [disabled]="page() === 1" (click)="changePage(page() - 1)">
+        ← Anterior
+      </button>
+      <span>Página {{ page() }} de {{ totalPages() }}</span>
+      <button type="button" [disabled]="page() === totalPages()" (click)="changePage(page() + 1)">
+        Próxima →
+      </button>
+    </nav>
+  }
+</main>

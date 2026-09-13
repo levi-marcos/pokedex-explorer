@@ -1,1 +1,130 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface-2: #f2f1ec;
+  --text: #1f1f1f;
+  --muted: #8a8a92;
+  --accent: #ef3a2d;
+  --accent-dark: #c62828;
+  --line: #e9e7e1;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow: 0 8px 24px rgb(0 0 0 / 0.07);
+
+  --c-grass: #7ac74c;
+  --c-fire: #ee8130;
+  --c-water: #6390f0;
+  --c-bug: #a6b91a;
+  --c-normal: #a8a77a;
+  --c-electric: #f7d02c;
+  --c-ground: #e2bf65;
+  --c-fairy: #d685ad;
+  --c-fighting: #c22e28;
+  --c-psychic: #f95587;
+  --c-rock: #b6a136;
+  --c-ghost: #735797;
+  --c-ice: #96d9d6;
+  --c-dragon: #6f35fc;
+  --c-dark: #705746;
+  --c-steel: #b7b7ce;
+  --c-poison: #a33ea1;
+  --c-flying: #a98ff3;
+
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: var(--c-normal);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.type-badge--sm {
+  padding: 1px 8px;
+  font-size: 0.62rem;
+}
+
+.type-badge.grass {
+  background: var(--c-grass);
+}
+.type-badge.fire {
+  background: var(--c-fire);
+}
+.type-badge.water {
+  background: var(--c-water);
+}
+.type-badge.bug {
+  background: var(--c-bug);
+}
+.type-badge.normal {
+  background: var(--c-normal);
+}
+.type-badge.electric {
+  background: var(--c-electric);
+  color: #2b2b2b;
+}
+.type-badge.ground {
+  background: var(--c-ground);
+}
+.type-badge.fairy {
+  background: var(--c-fairy);
+}
+.type-badge.fighting {
+  background: var(--c-fighting);
+}
+.type-badge.psychic {
+  background: var(--c-psychic);
+}
+.type-badge.rock {
+  background: var(--c-rock);
+}
+.type-badge.ghost {
+  background: var(--c-ghost);
+}
+.type-badge.ice {
+  background: var(--c-ice);
+}
+.type-badge.dragon {
+  background: var(--c-dragon);
+}
+.type-badge.dark {
+  background: var(--c-dark);
+}
+.type-badge.steel {
+  background: var(--c-steel);
+}
+.type-badge.poison {
+  background: var(--c-poison);
+}
+.type-badge.flying {
+  background: var(--c-flying);
+}

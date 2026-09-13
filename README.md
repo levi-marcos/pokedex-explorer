@@ -1,59 +1,91 @@
-# PokedexExplorer
+# PokéDex Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Uma Pokédex interativa construída com **Angular 22** e dados da **[PokéAPI](https://pokeapi.co/)**. Explore, busque, filtre e consulte os detalhes de qualquer Pokémon — com visual inspirado no design de "A PokeDex Website Design".
 
-## Development server
+## 🚀 Demonstração
 
-To start a local development server, run:
+A aplicação está publicada no GitHub Pages:
 
-```bash
-ng serve
+**https://levi-marcos.github.io/pokedex-explorer/**
+
+## ✨ Funcionalidades
+
+- **Catálogo paginado** — 12 Pokémon por página, com cartões mostrando nº, arte oficial, nome e tipos.
+- **Busca global** — por nome ou ID (ex.: `pikachu` ou `25`), com estado "não encontrado".
+- **Filtro por tipo (OR)** — marque vários tipos para ver todos os Pokémon que sejam de um deles.
+- **Página de detalhe** — `/pokemon/:id` com descrição, altura/peso (em m e kg), stats com barras, habilidades e evolução.
+- **Estados de UI** — carregando, erro, vazio e não encontrado.
+- **Design fiel ao Figma** — wordmark ● PokéDex, moldura vermelha clássica com Pokébola, favicon Pokébola.
+- **Responsivo** — adaptado para desktop e celular.
+
+## 🧱 Stack
+
+- [Angular 22](https://angular.dev/) (standalone components, Signals, rotas)
+- [RxJS](https://rxjs.dev/) (HTTP + composição de requisições)
+- [PokéAPI](https://pokeapi.co/) (dados)
+- [Vitest](https://vitest.dev/) (testes)
+
+## 📁 Estrutura
+
+```
+src/app/
+├── components/pokemon-card/   # cartão do catálogo
+├── core/
+│   └── pokemon-api.service.ts # comunicação com a PokéAPI
+├── models/
+│   └── pokemon.models.ts      # DTOs, View Models e funções puras (mapper)
+├── pages/
+│   ├── pokedex/               # catálogo (busca, filtro, paginação)
+│   └── pokemon-detail/        # detalhe do Pokémon
+├── app.ts / app.html / app.scss
+└── app.routes.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## ▶️ Como rodar localmente
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Pré-requisitos: **Node.js 22+** e **npm**.
 
 ```bash
-ng generate component component-name
+# 1) Instalar dependências
+npm install
+
+# 2) Subir o servidor de desenvolvimento
+npm start
+
+# 3) Abrir
+# http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🧪 Testes
 
 ```bash
-ng generate --help
+npm run test -- --watch=false
 ```
 
-## Building
+Os testes cobrem: mapeador de domínio (purê), service HTTP (com `HttpTestingController`) e fluxos de busca da página principal.
 
-To build the project run:
+## 🏗️ Build de produção
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Deploy no GitHub Pages
 
-## Running unit tests
+O repositório usa **GitHub Actions** (`.github/workflows/deploy.yml`): a cada push na branch `main`/`master`, o projeto é compilado com `--base-href` adequado e publicado. Para o roteamento funcionar em URLs profundas, o app usa `public/404.html` + redirecionamento via `sessionStorage`.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 📊 Dados e a "estratégia N+1"
 
-```bash
-ng test
-```
+A PokéAPI entrega a listagem sem imagens/tipos; o detalhe de cada Pokémon traz tudo, porém em resposta pesada (~290 KB). No MVP, buscamos o detalhe de cada card da página (12 requisições em paralelo via `forkJoin`). Isso está registrado como **dívida técnica consciente** — a evolução (cache em memória e/ou endpoint customizado) está no roadmap.
 
-## Running end-to-end tests
+## 🗺️ Roadmap / Melhorias futuras
 
-For end-to-end (e2e) testing, run:
+- [ ] Cache em memória das requisições de detalhe (reduzir N+1)
+- [ ] Descrição completa no card do catálogo
+- [ ] Seção de evolução com cadeia completa (`/pokemon-species`)
+- [ ] Tema escuro
+- [ ] Modo "dispositivo" (visual clássico da Pokédex física)
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Feito como projeto de estudo de Angular 22, mentorado passo a passo (arquitetura, UX e testes). Mente: *Gotta catch 'em all!*

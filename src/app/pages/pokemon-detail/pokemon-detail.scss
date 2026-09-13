@@ -1,0 +1,256 @@
+.detail {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+}
+
+.detail__back {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.detail__layout {
+  display: grid;
+  gap: 28px;
+
+  @media (min-width: 820px) {
+    grid-template-columns: 340px 1fr;
+  }
+}
+
+.detail__art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+
+  img {
+    width: 100%;
+    max-width: 290px;
+  }
+}
+
+.detail__card-number {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.detail__name {
+  margin: 0 0 10px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: capitalize;
+}
+
+.detail__types {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.detail__desc {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.detail__measures {
+  display: flex;
+  gap: 36px;
+  margin: 0 0 22px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.detail__measure {
+  dt {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 4px 0 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
+
+.detail__stats {
+  h2 {
+    margin: 0 0 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 42px 1fr 36px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+
+  &__label {
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  &__bar {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--surface-2);
+
+    i {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+  }
+
+  &__value {
+    font-weight: 700;
+    text-align: right;
+  }
+}
+
+.detail__abilities {
+  h2 {
+    margin: 22px 0 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+}
+
+.detail__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.detail__chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.detail__evolution {
+  h2 {
+    margin: 26px 0 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+}
+
+.evo-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.evo-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 110px;
+  padding: 14px 8px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
+  text-align: center;
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  &--current {
+    border: 2px solid var(--accent);
+    box-shadow: none;
+  }
+
+  &--next {
+    border: 2px dashed var(--line);
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted);
+  }
+}
+
+.evo-tile__q {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--line);
+}
+
+.status {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--muted);
+
+  &--error {
+    color: #b00020;
+  }
+
+  a {
+    color: var(--accent);
+  }
+}

@@ -1,0 +1,17 @@
+<a class="card" [routerLink]="['/pokemon', card().id]">
+  <span class="card__number">#{{ padId(card().id) }}</span>
+  <span class="card__art">
+    <img
+      [src]="card().imageUrl ?? ''"
+      [alt]="card().name"
+      width="120"
+      height="120"
+      loading="eager" />
+  </span>
+  <strong class="card__name">{{ card().name }}</strong>
+  <span class="card__types">
+    @for (type of card().types; track type) {
+      <span class="type-badge" [class]="type">{{ type }}</span>
+    }
+  </span>
+</a>
