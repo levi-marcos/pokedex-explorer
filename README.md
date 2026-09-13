@@ -15,7 +15,7 @@ A aplicação está publicada no GitHub Pages:
 - **Filtro por tipo (OR)** — marque vários tipos para ver todos os Pokémon que sejam de um deles.
 - **Página de detalhe** — `/pokemon/:id` com descrição, altura/peso (em m e kg), stats com barras, habilidades e evolução.
 - **Estados de UI** — carregando, erro, vazio e não encontrado.
-- **Design fiel ao Figma** — wordmark ● PokéDex, moldura vermelha clássica com Pokébola, favicon Pokébola.
+- **Design fiel ao Figma** — wordmark ● PokéDex, moldura vermelha clássica com Pokébola, favicon Pokébola e fundo vermelho com Pokéballs translúcidas.
 - **Responsivo** — adaptado para desktop e celular.
 
 ## 🧱 Stack
