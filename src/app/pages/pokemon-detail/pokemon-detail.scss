@@ -30,13 +30,6 @@
   }
 }
 
-.detail__infos {
-  padding: 20px 22px;
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
 .detail__art {
   position: relative;
   display: flex;
@@ -251,13 +244,13 @@
 .status {
   padding: 48px 0;
   text-align: center;
-  color: var(--on-bg-muted);
+  color: var(--muted);
 
   &--error {
-    color: #ff8f9a;
+    color: #b00020;
   }
 
   a {
-    color: var(--on-bg);
+    color: var(--accent);
   }
 }

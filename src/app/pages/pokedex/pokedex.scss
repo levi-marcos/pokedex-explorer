@@ -21,8 +21,6 @@
   font-size: 1.7rem;
   font-weight: 800;
   letter-spacing: 0.4px;
-  color: var(--on-bg);
-  text-shadow: 0 2px 8px rgb(0 0 0 / 0.25);
 }
 
 .pokedex__logo-dot {
@@ -88,7 +86,7 @@
     display: block;
     margin-bottom: 8px;
     font-size: 0.82rem;
-    color: var(--on-bg-muted);
+    color: var(--muted);
   }
 
   &__chips {
@@ -132,7 +130,7 @@
 .pokedex__total {
   margin: 0 0 12px;
   font-size: 0.88rem;
-  color: var(--on-bg-muted);
+  color: var(--muted);
 }
 
 .pokedex__grid {
@@ -144,14 +142,14 @@
 .status {
   padding: 56px 0;
   text-align: center;
-  color: var(--on-bg-muted);
+  color: var(--muted);
 
   p {
     margin: 0 0 14px;
   }
 
   &--error {
-    color: #ff8f9a;
+    color: #b00020;
   }
 
   &__action {
@@ -200,6 +198,6 @@
   span {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--on-bg-muted);
+    color: var(--muted);
   }
 }
